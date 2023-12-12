@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_hospital_appointment_tree" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+           <tree>
+               <field name="patient_id"/>
+               <field name="appointment_time"/>
+               <field name="booking_date"/>
+           </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!--  group tag adds the labels for the fields-->
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="gender"/>
+                            <field name="ref"/>
+                        </group>
+                        <group>
+                            <field name="appointment_time"/>
+                            <field name="booking_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_appointment_search" model="ir.ui.view">
+        <field name="name">hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <!--  searchView-->
+           <search>
+
+           </search>
+        </field>
+    </record>
+
+    <record id="action_hospital_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <!-- <field name="context">{'search_default_group_by_gender': 1, 'search_default_filter_male': 1 }</field>
+        Default filter and group by for menu action using context -->
+        <field name="help" type="html">
+            <!-- help message -->
+            <p class="o_view_nocontent_smiling_face">
+                Create your first appointment!
+            </p>
+        </field>
+    </record>
+
+    <!-- sub menu -->
+    <menuitem id="menu_appointment"
+    name="View appointments"
+    sequence="0"
+    parent="menu_appointment_master"
+    action="action_hospital_appointment"/>
+</odoo>

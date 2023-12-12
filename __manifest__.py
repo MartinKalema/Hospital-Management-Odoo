@@ -1,0 +1,23 @@
+{
+    'name': 'Hospital Management',
+    'version': '1.0.0',
+    'category': 'Hospital',
+    'summary': 'Hospital Management System',
+    'author': 'Martin Kalema',
+    'description': """""",
+    'sequence': -100,
+    'depends': ['mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menu.xml',
+        'views/patient_view.xml',
+        'views/female_patient_view.xml',
+        'views/appointment_view.xml',
+    ],
+    'demo': [],
+    'application': True,
+    'installable': True,
+    'auto_install': False,
+    'assets': {},
+    'license': 'LGPL-3',
+}
