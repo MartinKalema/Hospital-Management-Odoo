@@ -8,7 +8,7 @@ class HospitalPatient(models.Model):
     _description = "Hospital patient"
 
     name = fields.Char(string='Name', tracking=True)  # By default, the _rec_name of a model is the 'name' field.
-    ref = fields.Char(string='Reference', tracking=True)
+    ref = fields.Char(string='Reference', tracking=True, help='Patient unique identifier')
     # computed fields are not automatically stored in the database, you have to use 'store=True'
     age = fields.Integer(string='Age', compute='_compute_age', tracking=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender', tracking=True)
@@ -26,6 +26,6 @@ class HospitalPatient(models.Model):
         for record in self:
             if record.date_of_birth:
                 record.age = today.year - record.date_of_birth.year
-            # the else statement is a must, otherwise you will get errors
+            # the else statement is a must, otherwise you will get errors. The computed field must always have a value.
             else:
                 record.age = 0
