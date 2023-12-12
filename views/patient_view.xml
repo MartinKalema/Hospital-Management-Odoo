@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_hospital_patient_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+           <tree>
+               <field name="ref"/>
+               <field name="name" string="Patient Name"/>
+               <field name="age"/>
+               <field name="gender"/>
+           </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!--  group tag adds the labels for the fields-->
+                    <group>
+                        <group>
+                            <field name="ref" sequence="-1"/>
+                            <field name="name" sequence="0"/>
+                            <field name="date_of_birth" sequence="1"/>
+                        </group>
+                        <group>
+                             <field name="age" sequence="2"/>
+                             <field name="gender" sequence="3"/>
+                             <field name="active" sequence="4" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_patient_search" model="ir.ui.view">
+        <field name="name">hospital.patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <!--  searchView-->
+           <search>
+               <field name="name" string="Patient Name" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
+               <field name="ref"/>
+               <field name="age"/>
+               <field name="gender"/>
+               <filter name="filter_male" string="Males" domain="[('gender', '=', 'male')]"/>
+               <filter name="filter_female" string="Females" domain="[('gender', '=', 'female')]"/>
+<!--               <separator/>-->
+<!--               <filter name="filter_kids" string="Kids" domain="[('age', '&lt;=', 5)]"/>-->
+               <separator/>
+               <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
+               <group expand="0" string="Group by">
+                   <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
+               </group>
+
+               <searchpanel>
+                   <field name="gender" enable_counters="1" icon="fa-users" select="multi"/>
+               </searchpanel>
+           </search>
+        </field>
+    </record>
+
+     <record id="action_hospital_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <!-- <field name="context">{'search_default_group_by_gender': 1, 'search_default_filter_male': 1 }</field>
+        Default filter and group by for menu action using context -->
+        <field name="help" type="html">
+            <!-- help message -->
+            <p class="o_view_nocontent_smiling_face">
+                Create your first patient!
+            </p>
+        </field>
+    </record>
+
+    <!-- sub menu -->
+    <menuitem id="menu_patient"
+    name="Patients"
+    sequence="0"
+    parent="menu_patient_master"
+    action="action_hospital_patient"/>
+
+</odoo>
