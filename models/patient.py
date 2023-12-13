@@ -18,6 +18,7 @@ class HospitalPatient(models.Model):
     # Create another action with a treeView to show all the appointments a patient has.
     appointment_id = fields.Many2one('hospital.appointment', string='Appointments')
     image = fields.Image(string='Image')
+    tag_ids = fields.Many2many('patient.tag', string='Tags')
 
     # Whenever date of birth changes, the _compute_age() is executed.
     # The value is computed before saving, so you see the age change immediately.

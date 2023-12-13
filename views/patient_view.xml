@@ -9,6 +9,7 @@
                <field name="name" string="Patient Name"/>
                <field name="age"/>
                <field name="gender"/>
+               <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
            </tree>
         </field>
     </record>
@@ -30,6 +31,8 @@
                         <group>
                              <field name="age" sequence="2"/>
                              <field name="gender" sequence="3"/>
+<!--                            color_field is used to set the color of the many2many_tags -->
+                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                              <field name="active" sequence="4" invisible="1"/>
                         </group>
                     </group>
