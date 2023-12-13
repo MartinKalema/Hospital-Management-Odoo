@@ -68,6 +68,7 @@
                     data-hotkey="i"/>
 <!--                    states attribute dictates when a button should be visible-->
                     <button name="action_done" string="Mark As Done" type="object" states="in_consultation" data-hotkey="z"/>
+<!--                    <button name="%(action_cancel_appointment)d" string="Cancel" type="action" states="draft" data-hotkey="c"/>-->
                     <button name="action_cancel" string="Cancel" type="object" states="draft" data-hotkey="c"/>
                     <button name="action_draft" string="Reset to draft" type="object" states="canceled" data-hotkey="d"/>
 <!--                    options="{'clickable': '1'}"-->

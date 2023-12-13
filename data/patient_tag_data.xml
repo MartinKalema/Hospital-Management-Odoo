@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--loading data into database using xml files-->
+<!--the xml file must be stored in a folder called data-->
+<odoo>
+    <record id="patient_tag_vip" model="patient.tag">
+        <field name="name">VIP</field>
+    </record>
+    <record id="patient_tag_casual" model="patient.tag">
+        <field name="name">Casual</field>
+    </record>
+</odoo>

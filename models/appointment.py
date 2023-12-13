@@ -60,8 +60,9 @@ class HospitalAppointment(models.Model):
 
     @staticmethod
     def action_cancel(self):
-        for record in self:
-            record.state = 'canceled'
+        return self.env.ref('om_hospital.action_cancel_appointment').read()[0]
+        # for record in self:
+        #     record.state = 'canceled'
 
     @staticmethod
     def action_draft(self):
