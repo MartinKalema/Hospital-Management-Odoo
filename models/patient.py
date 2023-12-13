@@ -7,7 +7,8 @@ class HospitalPatient(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']  # adding chatter to form
     _description = "Hospital patient"
 
-    name = fields.Char(string='Name', tracking=True, required=True)  # By default, the _rec_name of a model is the 'name' field.
+    # By default, the _rec_name of a model is the 'name' field.
+    name = fields.Char(string='Name', tracking=True, required=True)
     ref = fields.Char(string='Reference', tracking=True, help='Patient unique identifier', required=True)
     # computed fields are not automatically stored in the database, you have to use 'store=True'
     age = fields.Integer(string='Age', compute='_compute_age', tracking=True, required=True)

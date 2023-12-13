@@ -41,11 +41,12 @@
 <!--            Removes the creation, deletion, duplication and edit options from the formView -->
             <form>
                 <header>
-                    <button name="action_in_consultation" string="In Consultation" type="object" states="draft"/>
+                    <button name="action_in_consultation" string="In Consultation" type="object" states="draft"
+                    data-hotkey="i"/>
 <!--                    states attribute dictates when a button should be visible-->
-                    <button name="action_done" string="Mark As Done" type="object" states="in_consultation"/>
-                    <button name="action_cancel" string="Cancel" type="object" states="draft"/>
-                    <button name="action_draft" string="Reset to draft" type="object" states="canceled"/>
+                    <button name="action_done" string="Mark As Done" type="object" states="in_consultation" data-hotkey="z"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="draft" data-hotkey="c"/>
+                    <button name="action_draft" string="Reset to draft" type="object" states="canceled" data-hotkey="d"/>
 <!--                    options="{'clickable': '1'}"-->
                     <field name="state" widget="statusbar" nolabel="1"
                     statusbar_visible="draft, in_consultation, done, canceled"/>
@@ -83,6 +84,24 @@
                             options="{'collaborative': true, 'resizable': true}"/>
                         </page>
                         <page string="Pharmacy" name="pharmacy_page">
+<!--                            one-to-many view implementation-->
+                            <field name="pharmacy_line_ids">
+<!--                            editable='bottom or top' stops the form from popping up when the add line is clicked. -->
+<!--                            products can be selected from the treeview itself.  -->
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="price_unit"/>
+                                    <field name="qty"/>
+                                </tree>
+<!--                            form view that appears when you add a line  -->
+                                <form>
+                                    <group>
+                                        <field name="product_id"/>
+                                        <field name="price_unit"/>
+                                        <field name="qty"/>
+                                    </group>
+                                </form>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>

@@ -6,7 +6,7 @@
     'author': 'Martin Kalema',
     'description': """""",
     'sequence': -100,
-    'depends': ['mail'],
+    'depends': ['mail', 'product'],
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
