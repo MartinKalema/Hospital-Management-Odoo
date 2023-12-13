@@ -7,13 +7,13 @@ class HospitalPatient(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']  # adding chatter to form
     _description = "Hospital patient"
 
-    name = fields.Char(string='Name', tracking=True)  # By default, the _rec_name of a model is the 'name' field.
-    ref = fields.Char(string='Reference', tracking=True, help='Patient unique identifier')
+    name = fields.Char(string='Name', tracking=True, required=True)  # By default, the _rec_name of a model is the 'name' field.
+    ref = fields.Char(string='Reference', tracking=True, help='Patient unique identifier', required=True)
     # computed fields are not automatically stored in the database, you have to use 'store=True'
-    age = fields.Integer(string='Age', compute='_compute_age', tracking=True)
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender', tracking=True)
+    age = fields.Integer(string='Age', compute='_compute_age', tracking=True, required=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender', tracking=True, required=True)
     active = fields.Boolean(string='Active', default=True, tracking=True)
-    date_of_birth = fields.Date(string='Date of Birth', tracking=True)
+    date_of_birth = fields.Date(string='Date of Birth', tracking=True, required=True)
     # Create another action with a treeView to show all the appointments a patient has.
     appointment_id = fields.Many2one('hospital.appointment', string='Appointments')
 

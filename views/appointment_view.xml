@@ -8,10 +8,26 @@
 <!--       <tree create="0" delete="0" edit="0"></tree>   -->
 <!--       Removes the create and delete buttons from the treeView   -->
 
-           <tree>
+           <tree sample="1"  multi_edit="1" decoration-success="state=='done'" decoration-danger="state=='canceled'"
+                 decoration-warning="state=='draft'"
+                 decoration-info="state == 'in_consultation'">
+
                <field name="patient_id"/>
                <field name="appointment_time"/>
-               <field name="booking_date"/>
+<!--           many2one_avatar adds the image icon near the system users name-->
+<!--               many2one_avatar_user opens up a chat-->
+               <field name="doctor_id" widget="many2one_avatar"/>
+<!--           'optional' makes tree view dynamic-->
+               <field name="gender" optional="hide"/>
+               <field name="ref" optional="hide"/>
+               <field name="booking_date" optional="show"/>
+<!--           List activity shows to do, call, send email etc  -->
+               <field name="activity_ids" widget="list_activity"/>
+               <field name="state" widget="badge" decoration-success="state=='done'"
+                      decoration-danger="state=='canceled'"
+                      decoration-warning="state=='draft'"
+                      decoration-info="state == 'in_consultation'"/>
+<!--           decoration-muted-->
            </tree>
         </field>
     </record>
@@ -22,11 +38,17 @@
         <field name="arch" type="xml">
 
 <!--            <form create="0" delete="0" edit="0"></form>-->
-<!--            Removes the create, delete, duplicate and edit options from the formView -->
+<!--            Removes the creation, deletion, duplication and edit options from the formView -->
             <form>
                 <header>
-                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"
-                    statusbar_visible="draft, in_consultation, done"/>
+                    <button name="action_in_consultation" string="In Consultation" type="object" states="draft"/>
+<!--                    states attribute dictates when a button should be visible-->
+                    <button name="action_done" string="Mark As Done" type="object" states="in_consultation"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="draft"/>
+                    <button name="action_draft" string="Reset to draft" type="object" states="canceled"/>
+<!--                    options="{'clickable': '1'}"-->
+                    <field name="state" widget="statusbar" nolabel="1"
+                    statusbar_visible="draft, in_consultation, done, canceled"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -37,11 +59,12 @@
                     <!--  group tag adds the labels for the fields-->
                     <group>
                         <group>
-                            <field name="patient_id"/>
+                            <field name="patient_id" default_focus="1"/>
                             <field name="gender"/>
                             <field name="ref"/>
                         </group>
                         <group>
+                            <field name="doctor_id" widget="many2one_avatar"/>
                             <field name="appointment_time"/>
                             <field name="booking_date" help="Date when appointment is booked."/>
                             <button name="action_test" string="Object Button" type="object" class="oe_highlight"
@@ -55,7 +78,9 @@
 
                     <notebook>
                         <page string="Prescription" name="prescription_page">
-                            <field name="prescription" placeholder="Enter patient's prescription."/>
+<!--                        collaborative and resizable html field   -->
+                            <field name="prescription" placeholder="Enter patient's prescription."
+                            options="{'collaborative': true, 'resizable': true}"/>
                         </page>
                         <page string="Pharmacy" name="pharmacy_page">
                         </page>

@@ -4,7 +4,7 @@
         <field name="name">hospital.patient.tree</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-           <tree>
+           <tree sample="1" multi_edit="1">
                <field name="ref"/>
                <field name="name" string="Patient Name"/>
                <field name="age"/>
