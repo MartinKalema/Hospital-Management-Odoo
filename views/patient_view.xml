@@ -19,10 +19,11 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <!--  group tag adds the labels for the fields-->
                     <group>
                         <group>
-                            <field name="ref" sequence="-1"/>
+                            <field name="ref" sequence="-1" default_focus="1"/>
                             <field name="name" sequence="0"/>
                             <field name="date_of_birth" sequence="1"/>
                         </group>

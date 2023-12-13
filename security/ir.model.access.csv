@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 om_hospital.access_hospital_patient,access_hospital_patient,om_hospital.model_hospital_patient,base.group_user,1,1,1,1
 om_hospital.access_hospital_appointment,access_hospital_appointment,om_hospital.model_hospital_appointment,base.group_user,1,1,1,1
 om_hospital.access_appointment_pharmacy_lines,access_appointment_pharmacy_lines,om_hospital.model_appointment_pharmacy_lines,base.group_user,1,1,1,1
+om_hospital.access_patient_tag,access_patient_tag,om_hospital.model_patient_tag,base.group_user,1,1,1,1

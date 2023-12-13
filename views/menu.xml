@@ -19,4 +19,9 @@
     parent="menu_hospital_root"
     sequence="1"/>
 
+    <menuitem id="menu_configuration"
+    name="Configurations"
+    parent="menu_hospital_root"
+    sequence="3"/>
+
 </odoo>
