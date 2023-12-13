@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+     <record id="view_hospital_appointment_activity" model="ir.ui.view">
+        <field name="name">hospital.appointment.activity</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <activity string="Appointments">
+                <field name="patient_id"/>
+                <templates>
+                    <div t-name="activity-box">
+<!--                    Use the model where the image is stored, within the img tags -->
+                        <img t-att-src="activity_image('hospital.patient', 'image', record.patient_id.raw_value)"
+                             role="img" t-att-title="record.patient_id.value" t-att-alt="record.patient_id.value"/>
+                        <div>
+                            <field name="patient_id" display="full"/>
+                            <field name="ref" muted="1" display="full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+
     <record id="view_hospital_appointment_tree" model="ir.ui.view">
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
@@ -82,7 +105,8 @@
                     <notebook>
                         <page string="Prescription" name="prescription_page">
 <!--                        collaborative and resizable html field   -->
-                            <field name="prescription" placeholder="Enter patient's prescription."
+<!--                            'codeview': true doesn't work anymore, was it deprecated-->
+                            <field name="prescription" placeholder="Enter patient's prescription." widget="html"
                             options="{'collaborative': true, 'resizable': true}"/>
                         </page>
                         <page string="Pharmacy" name="pharmacy_page">
@@ -133,7 +157,7 @@
         <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,activity</field>
         <field name="context">{}</field>
         <!-- <field name="context">{'search_default_group_by_gender': 1, 'search_default_filter_male': 1 }</field>
         Default filter and group by for menu action using context -->
