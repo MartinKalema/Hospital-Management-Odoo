@@ -5,7 +5,7 @@
     <!-- A menu will only appear if it's linked with an action. -->
     <menuitem id="menu_hospital_root"
     name="Hospital"
-    sequence="0"
+    sequence="100"
     web_icon="om_hospital,static/description/icon.png"/>
 
     <!-- sub menu -->

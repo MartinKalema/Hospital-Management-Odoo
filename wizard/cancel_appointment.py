@@ -12,4 +12,3 @@ class CancelAppointmentWizard(models.TransientModel):
     @staticmethod
     def action_cancel(self):
         return
-

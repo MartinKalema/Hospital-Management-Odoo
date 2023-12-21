@@ -39,7 +39,7 @@ class HospitalAppointment(models.Model):
 
     @staticmethod
     def action_test(self):
-        print('Button clicked!!!!!!!!!!!!!!')
+        # print('Button clicked!!!!!!!!!!!!!!')
         return {
             'effect': {
                 'fadeout': 'slow',

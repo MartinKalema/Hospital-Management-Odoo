@@ -68,7 +68,8 @@
                </group>
 
                <searchpanel>
-                   <field name="gender" enable_counters="1" icon="fa-users" select="multi"/>
+                <!-- icon="fa-users" -->
+                   <field name="gender" enable_counters="1"  select="multi"/>
                </searchpanel>
            </search>
         </field>

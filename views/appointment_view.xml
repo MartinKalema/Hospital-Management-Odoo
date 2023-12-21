@@ -91,7 +91,7 @@
                         <group>
                             <field name="doctor_id" widget="many2one_avatar"/>
 <!--                            groups="base.group_no_one" means the field is only visible in debug mode-->
-                            <field name="hide_sales_price" />
+<!--                            <field name="hide_sales_price" />-->
                             <field name="appointment_time"/>
                             <field name="booking_date" help="Date when appointment is booked."/>
                             <button name="action_test" string="Object Button" type="object" class="oe_highlight"
