@@ -14,21 +14,51 @@ The Key features are;
 
 ## Structure
 ```
-├── controllers
-│   ├── controllers.py
-│   └── __init__.py
-├── demo
-│   └── demo.xml
+── controllers
+│   ├── __init__.py
+│   ├── main.py
+│   └── __pycache__
+│       ├── __init__.cpython-311.pyc
+│       └── main.cpython-311.pyc
+├── data
+│   └── patient_tag_data.xml
 ├── __init__.py
 ├── __manifest__.py
 ├── models
+│   ├── appointment.py
 │   ├── __init__.py
-│   └── models.py
+│   ├── patient.py
+│   ├── patient_tag.py
+│   └── __pycache__
+│       ├── appointment.cpython-311.pyc
+│       ├── __init__.cpython-311.pyc
+│       ├── patient.cpython-311.pyc
+│       └── patient_tag.cpython-311.pyc
+├── odoo_logo.svg
+├── __pycache__
+│   └── __init__.cpython-311.pyc
+├── README.md
 ├── security
 │   └── ir.model.access.csv
-└── views
-    ├── templates.xml
-    └── views.xml
+├── static
+│   └── description
+│       └── icon.png
+├── views
+│   ├── appointment_view.xml
+│   ├── female_patient_view.xml
+│   ├── menu.xml
+│   ├── patient_tag_view.xml
+│   ├── patient_view.xml
+│   └── website_form.xml
+└── wizard
+    ├── cancel_appointment.py
+    ├── cancel_appointment.xml
+    ├── __init__.py
+    └── __pycache__
+        ├── cancel_appointment.cpython-311.pyc
+        └── __init__.cpython-311.pyc
+
+
 ```
 ## Install this project
 Add this to your custom addons folder using this bash command 
