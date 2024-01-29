@@ -1,6 +1,6 @@
 <img align="center" alt="Coding" width="300" src="./odoo_logo.svg">
 
-## Purchases-Extended  ![Static Badge](https://img.shields.io/badge/hospital_management-v1.0-blue?style=for-the-badge)  ![GitHub contributors](https://img.shields.io/github/contributors/MartinKalema/Hospital-Management-Odoo?style=for-the-badge&logo=github) ![Static Badge](https://img.shields.io/badge/Odoo_version-v16.0-neon?style=for-the-badge)
+## Purchases-Extended  ![GitHub contributors](https://img.shields.io/github/contributors/MartinKalema/Hospital-Management-Odoo?style=for-the-badge&logo=github) ![Static Badge](https://img.shields.io/badge/Odoo_version-v16.0-neon?style=for-the-badge)
 
 Leveraging the power of Odoo, this system offers a modular and customizable approach to meet the unique needs of hospitals, clinics, and medical facilities. From patient management to inventory control, it provides a unified platform for healthcare professionals to enhance patient care and overall efficiency.
 
@@ -11,6 +11,9 @@ The Key features are;
 -  Billing and Invoicing
 -  Inventory Management
 -  Reporting and Analytics
+
+## Stack
+<a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> 
 
 ## Structure
 ```
