@@ -1,6 +1,7 @@
 <img align="center" alt="Coding" width="300" src="./odoo_logo.svg">
 
-## Purchases-Extended  ![GitHub contributors](https://img.shields.io/github/contributors/MartinKalema/Hospital-Management-Odoo?style=for-the-badge&logo=github) ![Static Badge](https://img.shields.io/badge/Odoo_version-v16.0-neon?style=for-the-badge)
+## Purchases-Extended  
+![GitHub contributors](https://img.shields.io/github/contributors/MartinKalema/Hospital-Management-Odoo?style=for-the-badge&logo=github) ![Static Badge](https://img.shields.io/badge/Odoo_version-v16.0-neon?style=for-the-badge)
 
 Leveraging the power of Odoo, this system offers a modular and customizable approach to meet the unique needs of hospitals, clinics, and medical facilities. From patient management to inventory control, it provides a unified platform for healthcare professionals to enhance patient care and overall efficiency.
 
