@@ -33,6 +33,6 @@ The Key features are;
 ## Install this project
 Add this to your custom addons folder using this bash command 
   ```bash
-  git clone https://github.com/MartinKalema/purchases-extended.git
+  git clone https://github.com/MartinKalema/Hospital-Management-Odoo.git
   ```
 
